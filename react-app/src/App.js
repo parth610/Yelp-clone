@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import SplashComponent from './components/SplashPage/SplashPageComponent';
+import BusinessFormComponent from './components/BusinessFormComponent/BusinessFormComponent';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -40,6 +41,9 @@ function App() {
         </ProtectedRoute> */}
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
+        </ProtectedRoute>
+        <ProtectedRoute path='/business-listing-form'>
+          <BusinessFormComponent />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashComponent />
