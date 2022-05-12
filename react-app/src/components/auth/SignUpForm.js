@@ -9,13 +9,15 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [zipCode, setZipCode] = useState(null)
+  const [profilePhoto, setProfilePhoto] = useState('')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, email, password, zipCode, profilePhoto));
       if (data) {
         setErrors(data)
       }
@@ -77,13 +79,30 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
+        <label>Confirm Password</label>
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Zip Code</label>
+        <input
+          type='number'
+          name='zip_code'
+          onChange={(e) => setZipCode(e.target.value)}
+          value={zipCode}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Photo</label>
+        <input
+          type='text'
+          name='profile_photo'
+          onChange={(e) => setProfilePhoto(e.target.value)}
+          value={profilePhoto}
         ></input>
       </div>
       <button type='submit'>Sign Up</button>
