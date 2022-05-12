@@ -1,6 +1,8 @@
+from turtle import back
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .members import members
 
 
 class User(db.Model, UserMixin):
@@ -10,6 +12,12 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    zip_code = db.Column(db.Integer, nullable=False)
+    profile_photo = db.Column(db.String(255), nullable=True)
+
+    business = db.relationship('Business', back_populates='user')
+    reviews = db.relationship('Review', back_populates='user')
+    collaboration = db.relationship('Business', secondary=members, backref='collaborators')
 
     @property
     def password(self):
