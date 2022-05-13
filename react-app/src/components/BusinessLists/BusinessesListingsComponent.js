@@ -15,7 +15,8 @@ const BusinessListingComponent = () => {
 
     const deleteBusinessHandle = async (e) => {
         const busId = e.currentTarget.id;
-        await dispatch(removeBusiness(busId))
+        console.log(+busId)
+        await dispatch(removeBusiness(+busId))
     }
 
     return (

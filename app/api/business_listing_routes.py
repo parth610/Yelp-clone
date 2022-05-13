@@ -58,7 +58,9 @@ def edit_business_listing(bus_id):
 @business_routes.route('/<int:bus_id>', methods=['DELETE'])
 @login_required
 def delete_business_listing(bus_id):
+    print('-------------------------')
     sel_business = Business.query.get(bus_id)
+    print(sel_business, '........................')
     if current_user.id == sel_business.creator_id:
         db.session.delete(sel_business)
         db.session.commit()
