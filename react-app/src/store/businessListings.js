@@ -1,5 +1,7 @@
 const ADD_BUSINESS = 'business/create'
 const LOAD_BUSINESSES = 'businesses/load'
+const UPDATE_BUSINESS = 'business/update'
+const DELETE_BUSINESS = 'business/delete'
 
 const addBusiness = (business) => ({
     type: ADD_BUSINESS,
@@ -10,6 +12,47 @@ const loadBusinesses = (businesses) => ({
     type: LOAD_BUSINESSES,
     businesses
 })
+
+const updateBusiness = (business) => ({
+    type: UPDATE_BUSINESS,
+    business
+})
+
+const deleteBusiness = (business) => ({
+    type: DELETE_BUSINESS,
+    business
+})
+
+export const editBusiness = (businessData) => async (dispatch) => {
+    const response = await fetch(`/api/business/${businessData.creatorId}`, {
+        method: 'POST',
+        body: JSON.stringify(businessData),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(updateBusiness(data))
+        return data
+    }
+}
+
+export const removeBusiness = (busId) => async (dispatch) => {
+    const response = await fetch(`/api/business${busId}`, {
+        method: 'DELETE'
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(deleteBusiness(data))
+        return data
+    }
+}
 
 
 
@@ -59,6 +102,18 @@ export default function businessListingReducer(state = initialState, action) {
                 return newBusinesses[bus.id] = bus
             })
             return newBusinesses
+        }
+
+        case UPDATE_BUSINESS: {
+            const newBusiness = {...state}
+            newBusiness[action.business.id] = action.business;
+            return newBusiness;
+        }
+
+        case DELETE_BUSINESS: {
+            const allBusinesses = {...state}
+            delete allBusinesses[action.business.id]
+            return allBusinesses;
         }
 
         default:
