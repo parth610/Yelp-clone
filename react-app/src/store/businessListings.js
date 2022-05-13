@@ -43,10 +43,11 @@ export const editBusiness = (businessData) => async (dispatch) => {
 }
 
 export const removeBusiness = (busId) => async (dispatch) => {
-    const response = await fetch(`/api/business${busId}`, {
+    console.log(busId)
+    const response = await fetch(`/api/business/${busId}`, {
         method: 'DELETE'
     })
-
+    console.log(response)
     if (response.ok) {
         const data = await response.json();
         dispatch(deleteBusiness(data))
