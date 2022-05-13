@@ -10,6 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import SplashComponent from './components/SplashPage/SplashPageComponent';
 import BusinessFormComponent from './components/BusinessFormComponent/BusinessFormComponent';
+import BusinessListingComponent from './components/BusinessLists/BusinessesListingsComponent';
+import './index.css'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -47,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashComponent />
+        </Route>
+        <Route path='/businesses-lists'>
+          <BusinessListingComponent />
         </Route>
       </Switch>
     </BrowserRouter>

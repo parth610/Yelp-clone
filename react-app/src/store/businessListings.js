@@ -1,9 +1,14 @@
 const ADD_BUSINESS = 'business/create'
-// const LOAD_BUSINESSES = 'businesses/load'
+const LOAD_BUSINESSES = 'businesses/load'
 
 const addBusiness = (business) => ({
     type: ADD_BUSINESS,
     business
+})
+
+const loadBusinesses = (businesses) => ({
+    type: LOAD_BUSINESSES,
+    businesses
 })
 
 
@@ -19,7 +24,6 @@ export const createBusiness = (businessData) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
-        console.log(data)
         if (data.errors) {
             return;
         }
@@ -28,16 +32,16 @@ export const createBusiness = (businessData) => async (dispatch) => {
     }
 }
 
-// export const getBusinesses = () => async (dispatch) => {
-//     const response = await fetch('/api/business/')
+export const getBusinesses = () => async (dispatch) => {
+    const response = await fetch('/api/business/')
 
-//     if (response.ok) {
-//         const data = await response.json();
-//         dispatch(loadBusinesses(data))
-//         return data
-//     }
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(loadBusinesses(data))
+        return data
+    }
 
-// }
+}
 
 const initialState = {};
 
@@ -47,6 +51,14 @@ export default function businessListingReducer(state = initialState, action) {
             const newBusiness = {...state}
             newBusiness[action.business.id] = action.business;
             return newBusiness;
+        }
+
+        case LOAD_BUSINESSES: {
+            const newBusinesses = {}
+            action.businesses.map(bus => {
+                return newBusinesses[bus.id] = bus
+            })
+            return newBusinesses
         }
 
         default:
