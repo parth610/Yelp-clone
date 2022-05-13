@@ -14,3 +14,8 @@ nav {
 .home-link-container {
     margin: 0 100px;
 }
+
+.auth-buttons-container-loggedin {
+    display: flex;
+    margin: 0 100px;
+}

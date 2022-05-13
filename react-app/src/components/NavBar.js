@@ -29,14 +29,16 @@ const NavBar = () => {
               </NavLink>
             </div>
         </div> :
+        <div className='auth-buttons-container-loggedin'>
            <div className='logout-button-cont'>
              <LogoutButton />
+           </div>
            <div>
              <NavLink to='/business-listing-form' exact={true}>
               Create your Business
              </NavLink>
            </div>
-           </div>
+        </div>
           }
         {/* <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
