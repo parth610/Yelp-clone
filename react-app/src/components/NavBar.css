@@ -1,0 +1,16 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(254, 174, 151);
+    padding: 10px 0px;
+}
+
+.auth-buttons {
+    display: flex;
+    margin: 0 100px;
+}
+
+.home-link-container {
+    margin: 0 100px;
+}

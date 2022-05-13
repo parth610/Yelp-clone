@@ -13,10 +13,7 @@ class Business(db.Model):
     state = db.Column(db.String(100), nullable=False)
     zip_code = db.Column(db.Integer, nullable=False)
     photos = db.Column(db.JSON, nullable=True)
-    hotel = db.Column(db.Boolean, nullable=False)
-    food = db.Column(db.Boolean, nullable=False)
-    transportation = db.Column(db.Boolean, nullable=False)
-    entertainment = db.Column(db.Boolean, nullable=False)
+    business_type = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime)
 
     user = db.relationship('User', back_populates='business')
@@ -34,9 +31,6 @@ class Business(db.Model):
             'state': self.state,
             'zip_code': self.zip_code,
             'photos': self.photos,
-            'hotel': self.hotel,
-            'food': self.food,
-            'transportation': self.transportation,
-            'entertainment': self.entertainment,
+            'business_type': self.business_type,
             'created_at': self.created_at
         }

@@ -3,21 +3,21 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import './NavBar.css'
 
 const NavBar = () => {
  const user = useSelector(state => state.session)
 
   return (
     <nav>
-      <ul>
-        <li>
+        <div className='home-link-container'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
-        </li>
+        </div>
           {
             user.user === null ?
-        <li>
+        <div className='auth-buttons'>
             <div>
               <NavLink to='/login' exact={true} activeClassName='active'>
                 Login
@@ -28,22 +28,21 @@ const NavBar = () => {
                 Sign Up
               </NavLink>
             </div>
-        </li> :
-           <li>
+        </div> :
+           <div className='logout-button-cont'>
              <LogoutButton />
            <div>
              <NavLink to='/business-listing-form' exact={true}>
               Create your Business
              </NavLink>
            </div>
-           </li>
+           </div>
           }
-        <li>
+        {/* <div>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
-        </li>
-      </ul>
+        </div> */}
     </nav>
   );
 }

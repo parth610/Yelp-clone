@@ -28,10 +28,7 @@ def create_business_listing():
             city = form.data['city'],
             state = form.data['state'],
             zip_code = form.data['zip_code'],
-            hotel = True,
-            food = True,
-            transportation = False,
-            entertainment = False
+            business_type = business_data['businessType']
         )
         db.session.add(business_listing)
         db.session.commit()
