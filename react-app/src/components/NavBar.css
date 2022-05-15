@@ -2,8 +2,8 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(254, 174, 151);
-    padding: 10px 0px;
+    align-items: center;
+    padding: 30px 0px;
 }
 
 .auth-buttons {
@@ -13,9 +13,51 @@ nav {
 
 .home-link-container {
     margin: 0 100px;
+    width: 20%;
+    max-width: 250px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .auth-buttons-container-loggedin {
     display: flex;
     margin: 0 100px;
+}
+
+.shareit-logo-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.shareit-logo {
+    width: 100%;
+}
+
+.login-link {
+    border: 1px #373b52 solid;
+    height: fit-content;
+    border-radius: 100px;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #373b52;
+    margin: 0 10px;
+}
+
+.sign-up-link {
+    border: 1px #373b52 solid;
+    height: fit-content;
+    border-radius: 100px;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #373b52;
+    margin: 0 10px;
+    /* background-color: #373b52; */
 }
