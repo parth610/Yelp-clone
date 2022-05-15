@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
+import shareit_logo from '../images/srateit_logo.png'
 
 const NavBar = () => {
  const user = useSelector(state => state.session)
@@ -11,23 +12,23 @@ const NavBar = () => {
   return (
     <nav>
         <div className='home-link-container'>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+          <NavLink to='/' className='shareit-logo-link' exact={true} activeClassName='active'>
+            <img className='shareit-logo' src={shareit_logo} />
           </NavLink>
         </div>
           {
             user.user === null ?
         <div className='auth-buttons'>
+              <NavLink className='login-link' to='/login' exact={true} activeClassName='active'>
             <div>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
-              </NavLink>
+                Log in
             </div>
+              </NavLink>
+              <NavLink className='sign-up-link' to='/sign-up' exact={true} activeClassName='active'>
             <div>
-              <NavLink to='/sign-up' exact={true} activeClassName='active'>
                 Sign Up
-              </NavLink>
             </div>
+              </NavLink>
         </div> :
         <div className='auth-buttons-container-loggedin'>
            <div className='logout-button-cont'>

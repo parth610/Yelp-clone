@@ -11,11 +11,10 @@ const BusinessListingComponent = () => {
         dispatch(getBusinesses())
     }, [dispatch])
 
-    console.log(user.user.id)
 
     const deleteBusinessHandle = async (e) => {
         const busId = e.currentTarget.id;
-        console.log(+busId)
+
         await dispatch(removeBusiness(+busId))
     }
 
@@ -25,7 +24,7 @@ const BusinessListingComponent = () => {
                 allBusinesses?.map(bus => (
                     <div key={bus.id}>
                         {bus.name}
-                        { user.user !== null && user.user.id === bus.creator_id &&
+                        { user?.user !== null && user?.user.id === bus.creator_id &&
                             <div>
                                 <button id={bus.id} onClick={deleteBusinessHandle}>
                                     Delete
