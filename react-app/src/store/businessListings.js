@@ -24,8 +24,8 @@ const deleteBusiness = (business) => ({
 })
 
 export const editBusiness = (businessData) => async (dispatch) => {
-    const response = await fetch(`/api/business/${businessData.creatorId}`, {
-        method: 'POST',
+    const response = await fetch(`/api/business/${businessData.busId}`, {
+        method: 'PUT',
         body: JSON.stringify(businessData),
         headers: {
             'Content-Type': 'application/json'

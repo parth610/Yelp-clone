@@ -1,13 +1,21 @@
 
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 import shareit_logo from '../images/srateit_logo.png'
+import { login } from '../store/session';
 
 const NavBar = () => {
  const user = useSelector(state => state.session)
+ const dispatch = useDispatch()
+
+ const loginDemo = async (e) => {
+  e.preventDefault();
+  await dispatch(login('demo@aa.io', 'password'));
+
+};
 
   return (
     <nav>
@@ -29,6 +37,9 @@ const NavBar = () => {
                 Sign Up
             </div>
               </NavLink>
+              <button onClick={loginDemo}>
+                Demo User
+              </button>
         </div> :
         <div className='auth-buttons-container-loggedin'>
            <div className='logout-button-cont'>
