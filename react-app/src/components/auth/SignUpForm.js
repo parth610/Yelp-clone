@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -11,10 +11,11 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [zipCode, setZipCode] = useState()
+  const [zipCode, setZipCode] = useState('')
   const [profilePhoto, setProfilePhoto] = useState('')
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -23,6 +24,8 @@ const SignUpForm = () => {
       if (data) {
         setErrors(data)
       }
+    } else {
+      setErrors(['passwords must match'])
     }
   };
 
@@ -69,7 +72,7 @@ const SignUpForm = () => {
 
 
         <input
-          className='signup-inputs'
+          className={errors?.includes('email : This field is required.') ? 'signup-inputs-red' : 'signup-inputs'}
           type='text'
           name='email'
           placeholder='Email'
@@ -79,7 +82,7 @@ const SignUpForm = () => {
 
 
         <input
-          className='signup-inputs'
+          className={errors?.includes('password : This field is required.') || errors?.includes('passwords must match')? 'signup-inputs-red' : 'signup-inputs'}
           type='password'
           placeholder='Password'
           name='password'
@@ -89,7 +92,7 @@ const SignUpForm = () => {
 
 
         <input
-          className='signup-inputs'
+          className={errors?.includes('password : This field is required.') || errors?.includes('passwords must match')? 'signup-inputs-red' : 'signup-inputs'}
           type='password'
           name='repeat_password'
           placeholder='Confirm Password'
@@ -99,7 +102,7 @@ const SignUpForm = () => {
 
 
         <input
-          className='signup-inputs'
+          className={errors?.includes('zip_code : This field is required.') ? 'signup-inputs-red' : 'signup-inputs'}
           type='number'
           name='zip_code'
           placeholder='Zip Code'
@@ -107,7 +110,7 @@ const SignUpForm = () => {
           value={zipCode}
         ></input>
 
-
+        <div className='profile-optional-text'>(Optional)</div>
         <input
           className='signup-inputs'
           type='text'
