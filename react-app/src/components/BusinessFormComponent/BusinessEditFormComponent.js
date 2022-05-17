@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { editBusiness } from "../../store/businessListings";
 
 
-const BusinessEditFormComponent = ({bus}) => {
+const BusinessEditFormComponent = ({bus, setShowEditForm}) => {
 
     const dispatch = useDispatch()
 
@@ -18,8 +18,6 @@ const BusinessEditFormComponent = ({bus}) => {
     const [editbusinessType, setEditBusinessType] = useState(bus?.businessType)
     const [editErrors, setEditErrors] = useState([])
 
-
-    console.log(bus)
 
     const editBusinessInfo = async (e) => {
         e.preventDefault()
@@ -38,6 +36,7 @@ const BusinessEditFormComponent = ({bus}) => {
         }
         if (editErrors.length < 1) {
             await dispatch(editBusiness(editedInfoData))
+            setShowEditForm(0)
         }
     }
 
@@ -107,6 +106,7 @@ const BusinessEditFormComponent = ({bus}) => {
             </select>
             <button type="submit">Save</button>
         </form>
+            <button onClick={(e) => setShowEditForm(0)}>Cancel</button>
         </div>
     )
 }
