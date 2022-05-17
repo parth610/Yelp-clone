@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses, removeBusiness } from "../../store/businessListings";
 import BusinessEditFormComponent from "../BusinessFormComponent/BusinessEditFormComponent";
+import ReviewsFormComponent from "../BusinessFormComponent/ReviewsFormComponent";
 
 const BusinessListingComponent = () => {
 
@@ -9,11 +10,18 @@ const BusinessListingComponent = () => {
     const allBusinesses = useSelector(state => Object.values(state.businessListingReducer))
     const user = useSelector(state => state.session)
 
-    const [showEditForm, setShowEditForm] = useState(false)
+    const [showEditForm, setShowEditForm] = useState(0)
+    const [showReviewForm, setShowReviewForm] = useState(0)
 
     useEffect(() => {
         dispatch(getBusinesses())
     }, [dispatch])
+
+    const editFormHandle = (e) => {
+        e.preventDefault();
+
+        setShowEditForm(+e.target.id)
+    }
 
 
     const deleteBusinessHandle = async (e) => {
@@ -54,16 +62,22 @@ const BusinessListingComponent = () => {
                                 <button id={bus.id} onClick={deleteBusinessHandle}>
                                     Delete
                                 </button>
-                                <button onClick={() => setShowEditForm(true)}>
+                                <button id={bus.id} onClick={editFormHandle}>
                                     Edit
                                 </button>
                             </div>
                         }
-                        <button>Add Review</button>
-                        { showEditForm &&
+                        <button id = {bus.id} onClick={(e) => setShowReviewForm(bus.id)}>Add Review</button>
+                        { showEditForm === bus.id &&
                         <div className="business-edit-form">
-                            <BusinessEditFormComponent bus = {bus} />
+                            <BusinessEditFormComponent bus = {bus} setShowEditForm={setShowEditForm} />
                         </div>
+                        }
+                        {
+                            showReviewForm === bus.id &&
+                            <div>
+                                <ReviewsFormComponent bus = {bus} setShowReviewForm={setShowReviewForm} />
+                            </div>
                         }
                     </div>
                 ))
