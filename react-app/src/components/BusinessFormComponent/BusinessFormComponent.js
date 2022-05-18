@@ -18,6 +18,9 @@ const BusinessFormComponent = () => {
 
     const submitBusiness = async (e) => {
         e.preventDefault();
+        // const fD = new FormData()
+        // fD.append('images', photos)
+        // console.log(fD)
         const businessData = {
             name: title,
             about,
@@ -26,9 +29,10 @@ const BusinessFormComponent = () => {
             city,
             state,
             zip_code: zipCode,
-            photos,
+            photos: photos,
             businessType
         }
+        console.log(businessData)
         await dispatch(createBusiness(businessData))
     }
 
@@ -71,11 +75,6 @@ const BusinessFormComponent = () => {
                    onChange={e => setZipCode(e.target.value)}
             >
             </input>
-            <input placeholder="Photos"
-                   value={photos}
-                   onChange={e => setPhotos(e.target.value)}
-            >
-            </input>
             <select placeholder="Business Title"
                    onChange={e => setBusinessType(e.target.value)}
             >
@@ -85,6 +84,13 @@ const BusinessFormComponent = () => {
                 <option value='transportation'>Transportation</option>
                 <option value='entertainment'>Entertainment</option>
             </select>
+            <label>Upload Pictures(optional)</label>
+            <input placeholder="Photos"
+                    type="file"
+                    multiple
+                   onChange={e => setPhotos(e.target.files[0])}
+            >
+            </input>
             <button type="submit">Create</button>
         </form>
     )

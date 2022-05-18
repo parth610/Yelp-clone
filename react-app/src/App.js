@@ -12,6 +12,7 @@ import SplashComponent from './components/SplashPage/SplashPageComponent';
 import BusinessFormComponent from './components/BusinessFormComponent/BusinessFormComponent';
 import BusinessListingComponent from './components/BusinessLists/BusinessesListingsComponent';
 import './index.css'
+import BusinessSoloComponenent from './components/BusinessLists/BusinessSoloView';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,9 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute> */}
+        <Route path='/business/:busId'>
+          <BusinessSoloComponenent />
+        </Route>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>

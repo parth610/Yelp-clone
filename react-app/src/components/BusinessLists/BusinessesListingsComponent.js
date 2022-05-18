@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getBusinesses, removeBusiness } from "../../store/businessListings";
 import BusinessEditFormComponent from "../BusinessFormComponent/BusinessEditFormComponent";
 import ReviewsFormComponent from "../BusinessFormComponent/ReviewsFormComponent";
+import './BusinessLists.css'
 
 const BusinessListingComponent = () => {
 
+    const history = useHistory()
     const dispatch = useDispatch()
     const allBusinesses = useSelector(state => Object.values(state.businessListingReducer))
     const user = useSelector(state => state.session)
+
 
     const [showEditForm, setShowEditForm] = useState(0)
     const [showReviewForm, setShowReviewForm] = useState(0)
@@ -24,6 +28,11 @@ const BusinessListingComponent = () => {
     }
 
 
+    const businessinfoView = (e) => {
+        const busId = +e.currentTarget.id;
+        history.push(`/business/${busId}`)
+    }
+
     const deleteBusinessHandle = async (e) => {
         const busId = e.currentTarget.id;
 
@@ -36,8 +45,8 @@ const BusinessListingComponent = () => {
 
             {
                 allBusinesses?.map(bus => (
-                    <div key={bus.id}>
-                        <div className="bus-info-card">
+                    <div className='business-info-container' key={bus.id}>
+                        <div id={bus.id} className="bus-info-card" onClick={businessinfoView}>
                             <div className="bus-info-name">
                             {bus.name}
                             </div>
