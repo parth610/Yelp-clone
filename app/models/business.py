@@ -17,7 +17,7 @@ class Business(db.Model):
     created_at = db.Column(db.DateTime)
 
     user = db.relationship('User', back_populates='business')
-    reviews = db.relationship('Review', back_populates='business')
+    reviews = db.relationship('Review', back_populates='business', cascade='delete,all')
 
     def to_dict(self):
         return {

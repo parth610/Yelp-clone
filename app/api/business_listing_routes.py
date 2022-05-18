@@ -41,7 +41,7 @@ def get_businesses():
 @login_required
 def edit_business_listing(bus_id):
     sel_business = Business.query.get(bus_id)
-    print('//////.....', sel_business, bus_id)
+
     updated_data = request.get_json(force=True)
     if current_user.id == sel_business.creator_id:
         sel_business.name = updated_data['name']
