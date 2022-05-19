@@ -1,4 +1,4 @@
-.login-form-container {
+.bus-form-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.login-form {
+.business-listing-form {
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -19,25 +19,7 @@
     border-radius: 20px;
 }
 
-.login-form-header {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.login-errors {
-    color: red;
-}
-
-.login-inputs-red {
-    width: 90%;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    border: solid 2px rgb(255, 66, 66);
-}
-
-.login-inputs {
+.bus-form-inputs {
     width: 90%;
     padding: 15px;
     margin: 10px;
@@ -45,7 +27,7 @@
     border: solid 1px rgb(200, 200, 200);
 }
 
-.login-form-button {
+.bus-form-button {
     background-color: #f191a1;
     width: 90%;
     padding: 15px;

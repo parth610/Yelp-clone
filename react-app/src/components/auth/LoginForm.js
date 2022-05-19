@@ -35,14 +35,14 @@ const LoginForm = () => {
     <div className='login-form-container'>
     <form className='login-form' onSubmit={onLogin}>
       <div className='login-form-header'>Log in to add reviews or list your business</div>
-      <div>
+      <div className='login-errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
 
         <input
-        className='login-inputs'
+        className={errors?.includes('email : This field is required.') || errors?.includes('email : No such user exists.') || errors?.includes('email : Email provided not found.') ? 'login-inputs-red' :'login-inputs'}
           name='email'
           type='text'
           placeholder='Email'
@@ -52,7 +52,7 @@ const LoginForm = () => {
 
 
         <input
-        className='login-inputs'
+        className={errors?.includes('password : Password was incorrect.') || errors?.includes('password : This field is required.') ? 'login-inputs-red' : 'login-inputs'}
           name='password'
           type='password'
           placeholder='Password'

@@ -62,7 +62,7 @@ const SignUpForm = () => {
       </div>
 
         <input
-          className={errors?.includes('username : This field is required.') ? 'signup-inputs-red' : 'signup-inputs'}
+          className={errors?.includes('username : This field is required.')  ? 'signup-inputs-red' : 'signup-inputs'}
           type='text'
           name='username'
           placeholder='Username'
@@ -72,7 +72,7 @@ const SignUpForm = () => {
 
 
         <input
-          className={errors?.includes('email : This field is required.') ? 'signup-inputs-red' : 'signup-inputs'}
+          className={errors?.includes('email : Please provide a valid email') || errors?.includes('email : This field is required.') ? 'signup-inputs-red' : 'signup-inputs'}
           type='text'
           name='email'
           placeholder='Email'
