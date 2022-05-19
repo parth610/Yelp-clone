@@ -37,18 +37,18 @@ const NavBar = () => {
                 Sign Up
             </div>
               </NavLink>
-              <button onClick={loginDemo}>
+              <button className='demo-user-button' onClick={loginDemo}>
                 Demo User
               </button>
         </div> :
         <div className='auth-buttons-container-loggedin'>
+             <NavLink className='create-business-button' to='/business-listing-form' exact={true}>
+           <div>
+              Create your Business
+           </div>
+             </NavLink>
            <div className='logout-button-cont'>
              <LogoutButton />
-           </div>
-           <div>
-             <NavLink to='/business-listing-form' exact={true}>
-              Create your Business
-             </NavLink>
            </div>
         </div>
           }

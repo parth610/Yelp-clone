@@ -1,3 +1,4 @@
+
 const ADD_BUSINESS = 'business/create'
 const LOAD_BUSINESSES = 'businesses/load'
 const UPDATE_BUSINESS = 'business/update'
@@ -58,12 +59,14 @@ export const removeBusiness = (busId) => async (dispatch) => {
 
 
 export const createBusiness = (businessData) => async (dispatch) => {
+    const data1 = await businessData.getAll('name')
+    console.log(data1)
     const response = await fetch('/api/business/', {
         method: 'POST',
-        body: JSON.stringify(businessData),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: businessData,
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // }
     })
 
     if (response.ok) {
@@ -74,6 +77,7 @@ export const createBusiness = (businessData) => async (dispatch) => {
         dispatch(addBusiness(data))
         return data
     }
+
 }
 
 export const getBusinesses = () => async (dispatch) => {
