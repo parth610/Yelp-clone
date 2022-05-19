@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #373b52;
 }
 
 .signup-form {
@@ -46,7 +47,7 @@
 }
 
 .signup-form-button {
-    background-color: #f191a1;
+    background-color:#f36746;
     width: 90%;
     padding: 15px;
     margin: 10px 10px 20px 10px;
@@ -58,6 +59,6 @@
 
 .login-link-signup-form {
     text-decoration: none;
-    color: #f191a1;
+    color:#f36746;
     font-family: pt-sans, sans-serif;
 }

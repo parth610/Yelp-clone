@@ -1,15 +1,32 @@
+.business-listing-page {
+    width: 100%;
+
+}
+
+.business-listings-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .business-info-container {
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.114);
     border-radius: 10px;
     /* padding: 10px; */
     margin: 20px;
-    background-color: #f191a1;
+    background-color: #f36746;
+    width: 60%;
+    max-width: 800px;
 }
 
 
 .bus-info-card {
     background-color: white;
     padding: 20px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
 
 .business-edit-form {
@@ -34,4 +51,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bus-info-name {
+    font-family: pt-sans, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.bus-type-cont {
+    color: #f36746;
+}
+
+.bus-info-about {
+    margin-bottom: 20px;
+}
+
+.bus-phone-number {
+    margin-bottom: 5px;
 }

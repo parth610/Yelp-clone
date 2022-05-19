@@ -47,17 +47,17 @@ const BusinessListingComponent = () => {
                 allBusinesses?.map(bus => (
                     <div className='business-info-container' key={bus.id}>
                         <div id={bus.id} className="bus-info-card" onClick={businessinfoView}>
+                            <div className="bus-type-cont">
+                                {bus.business_type}
+                            </div>
                             <div className="bus-info-name">
                             {bus.name}
-                            </div>
-                            <div>
-                                {bus.business_type}
                             </div>
                             <div className="bus-info-about">
                                 {bus.about}
                             </div>
-                            <div>
-                                {bus.phone_number}
+                            <div className="bus-phone-number">
+                                PHONE: {bus.phone_number}
                             </div>
                             <div>
                                 {bus.street_address}
