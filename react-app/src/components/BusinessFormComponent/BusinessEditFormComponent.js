@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editBusiness } from "../../store/businessListings";
+import './BusinessEditForm.css'
 
 
 const BusinessEditFormComponent = ({bus, setShowEditForm}) => {

@@ -5,6 +5,7 @@ import { getBusinesses } from "../../store/businessListings";
 import { getReviews, removeReview } from "../../store/reviews";
 import ReviewsFormComponent from "../BusinessFormComponent/ReviewsFormComponent";
 import ReviewEditFormComponent from "./ReviewEditFormComponent";
+import './BusinessSoloStyle.css'
 
 
 const BusinessSoloComponenent = () => {
@@ -57,17 +58,21 @@ const BusinessSoloComponenent = () => {
             </div>
             <div className="bus-reviews">
                 {
-                user?.id === currBusiness?.creator_id &&
+                user?.user?.id !== currBusiness?.creator_id &&
                 <div>
                     <button onClick={() => setShowReviewForm(currBusiness?.id)}>Add Review</button>
                 </div>}
                 {
                             showReviewForm === currBusiness?.id &&
-                            <div>
+                            <div className="review-form-bg-solo" onClick={() => setShowReviewForm(0)}>
                                 <ReviewsFormComponent bus = {currBusiness} setShowReviewForm={setShowReviewForm} />
                             </div>
                         }
-
+                    <div>
+                        <h1>
+                        Reviews
+                        </h1>
+                    </div>
                 {
                     relatedReviews?.map(review => (
                         <div key={review.id}>
@@ -86,7 +91,7 @@ const BusinessSoloComponenent = () => {
                             }
                             {
                                 showReviewEditForm === review.id &&
-                                <div>
+                                <div className="review-edit-form-solo" onClick={() => setShowReviewEditForm(0)}>
                                     <ReviewEditFormComponent review={review} setShowReviewEditForm={setShowReviewEditForm} />
                                 </div>
                             }
