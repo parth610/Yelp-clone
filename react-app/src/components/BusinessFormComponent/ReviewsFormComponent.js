@@ -22,7 +22,7 @@ const ReviewsFormComponent = ({bus, setShowReviewForm}) => {
     }
 
     return (
-        <div>
+        <div onClick={(e) => e.stopPropagation()}>
             <form onSubmit={handleReviewSubmit}>
             <input value={reviewStars} onChange={(e) => setReviewStars(e.target.value)} />
             <textarea value={reviewContent} onChange={(e) => setReviewContent(e.target.value)}>
