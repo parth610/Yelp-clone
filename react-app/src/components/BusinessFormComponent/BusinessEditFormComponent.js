@@ -42,7 +42,7 @@ const BusinessEditFormComponent = ({bus, setShowEditForm}) => {
     }
 
     return (
-        <div className="business-info-edit-form-container">
+        <div className="business-info-edit-form-container" onClick={(e) => e.stopPropagation()}>
             <form onSubmit={editBusinessInfo} className="business-listing-form">
                 <label></label>
             <input placeholder="Business Title"

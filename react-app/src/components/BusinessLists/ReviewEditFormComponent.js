@@ -21,7 +21,7 @@ const ReviewEditFormComponent = ({review, setShowReviewEditForm}) => {
     }
 
     return (
-        <div>
+        <div onClick={(e) => e.stopPropagation()}>
             <form onSubmit={handleEditReviewSubmit}>
             <input value={editreviewStars} onChange={(e) => setEditReviewStars(e.target.value)} />
             <textarea value={editreviewContent} onChange={(e) => setEditReviewContent(e.target.value)}>
