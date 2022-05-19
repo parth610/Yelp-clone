@@ -1,10 +1,12 @@
 /* TODO Add site wide styles */
 html {
     width: 100%;
+    height: 100%;
 }
 
 body {
     width: 100%;
+    height: 100%;
     padding: 0;
     margin: 0;
     background-color: #e9ecff;
@@ -12,9 +14,8 @@ body {
 
 #root {
     width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     font-family: pt-sans, sans-serif;
 }

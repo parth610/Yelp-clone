@@ -9,6 +9,8 @@ nav {
 .auth-buttons {
     display: flex;
     margin: 0 100px;
+    justify-content: center;
+    align-items: center;
 }
 
 .home-link-container {
@@ -60,4 +62,50 @@ nav {
     color: #373b52;
     margin: 0 10px;
     /* background-color: #373b52; */
+}
+
+.demo-user-button {
+    /* border: 1px #373b52 solid; */
+    border: none;
+    height: fit-content;
+    border-radius: 100px;
+    /* padding: 10px 30px; */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #373b52;
+    background-color: #373b5200;
+    margin: 0 10px;
+}
+
+.logout-button {
+    border: none;
+    height: fit-content;
+    border-radius: 100px;
+    /* padding: 10px 30px; */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #373b52;
+    margin: 0 10px;
+    background-color: #373b5200;
+    font-size: 16px;
+}
+
+.create-business-button {
+    border: 1px #373b52 solid;
+    height: fit-content;
+    border-radius: 100px;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: #373b52;
+    margin: 0 10px;
+}
+
+.auth-buttons-container-loggedin {
+    display: flex;
+    align-items: center;
 }
