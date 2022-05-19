@@ -1,0 +1,49 @@
+.splash-page-bg {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family: pt-sans, sans-serif;
+    margin-top: 50px;
+}
+
+.splash-text-info-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.splash-text-header {
+    width: 80%;
+    font-family: pt-sans, sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    margin-bottom: 5px;
+}
+
+.splash-text {
+    width: 80%;
+    font-family: pt-sans, sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    margin-bottom: 50px;
+}
+
+.splash-vector-container {
+    width: 40%;
+}
+
+.splash-vector {
+    width: 90%;
+}
+
+.business-link-splash {
+    text-decoration: none;
+    font-size: 24px;
+    background-color: #f36746;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 80px;
+}

@@ -13,6 +13,7 @@ import BusinessFormComponent from './components/BusinessFormComponent/BusinessFo
 import BusinessListingComponent from './components/BusinessLists/BusinessesListingsComponent';
 import './index.css'
 import BusinessSoloComponenent from './components/BusinessLists/BusinessSoloView';
+import FooterComponent from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -58,6 +60,7 @@ function App() {
           <BusinessListingComponent />
         </Route>
       </Switch>
+      <FooterComponent />
     </BrowserRouter>
   );
 }
