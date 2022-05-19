@@ -78,13 +78,13 @@ const BusinessListingComponent = () => {
                         }
                         <button id = {bus.id} onClick={(e) => setShowReviewForm(bus.id)}>Add Review</button>
                         { showEditForm === bus.id &&
-                        <div className="business-edit-form">
+                        <div className="business-edit-form" onClick={() => setShowEditForm(false)}>
                             <BusinessEditFormComponent bus = {bus} setShowEditForm={setShowEditForm} />
                         </div>
                         }
                         {
                             showReviewForm === bus.id &&
-                            <div>
+                            <div className="add-review-home" onClick={() => setShowReviewForm(false)}>
                                 <ReviewsFormComponent bus = {bus} setShowReviewForm={setShowReviewForm} />
                             </div>
                         }
