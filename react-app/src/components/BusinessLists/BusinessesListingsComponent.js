@@ -122,7 +122,7 @@ const BusinessListingComponent = () => {
                             <div className="delete-modal-bg" onClick={() => setShowDeleteModal(0)}>
                                 <div className="delete-modal-container" onClick={(e) => e.stopPropagation()}>
                                     <p>Are you sure you want to delete {bus.name}?</p>
-                                    <button className="delete-bus-modal-button" onClick={deleteBusinessHandle}>Delete</button>
+                                    <button id={bus.id} className="delete-bus-modal-button" onClick={deleteBusinessHandle}>Delete</button>
                                     <button className="delete-cancel-bus-modal-button" onClick={() => setShowDeleteModal(0)}>Cancel</button>
                                 </div>
                             </div>
