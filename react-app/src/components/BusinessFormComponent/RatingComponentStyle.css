@@ -1,0 +1,14 @@
+.star-radio-buttons {
+    display: none;
+}
+
+#grey-star {
+    color: rgba(128, 128, 128, 0.11);
+    -webkit-text-stroke: 1px #f36746;
+    font-size: 40px;
+}
+
+#yellow-star {
+    font-size: 40px;
+    color: #f36746;
+}

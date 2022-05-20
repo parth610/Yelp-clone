@@ -110,7 +110,7 @@ const SignUpForm = () => {
           value={zipCode}
         ></input>
 
-        <div className='profile-optional-text'>(Optional)</div>
+        {/* <div className='profile-optional-text'>(Optional)</div>
         <input
           className='signup-inputs'
           type='text'
@@ -118,7 +118,7 @@ const SignUpForm = () => {
           placeholder='Profile Photo'
           onChange={(e) => setProfilePhoto(e.target.value)}
           value={profilePhoto}
-        ></input>
+        ></input> */}
 
       <button className='signup-form-button' type='submit'>Sign Up</button>
       <div>

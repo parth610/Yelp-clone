@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
 
 .business-listing-form {
@@ -36,4 +38,27 @@
     border: solid 1px rgb(200, 200, 200);
     color: white;
     font-size: 16px;
+}
+
+.bus-form-errors {
+    color: red;
+}
+
+.upload-picture {
+    padding: 15px;
+    margin: 20px;
+    background-color: #f3664600;
+    border: solid 1px #f36746;
+    color: #f36746;
+    border-radius: 5px;
+}
+
+.upload-picture:hover {
+    cursor: pointer;
+    background-color: #f36746;
+    color: white;
+}
+
+.choose-file-input::-webkit-file-upload-button {
+    display: none;
 }

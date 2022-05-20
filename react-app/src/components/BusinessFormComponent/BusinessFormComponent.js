@@ -25,6 +25,7 @@ const BusinessFormComponent = () => {
               const errorsData = []
               if (title.length < 1) errorsData.push('Title-field is required')
               if (about.length < 1) errorsData.push('About-field is required')
+              if (about.length > 500) errorsData.push('About field character limit is 500')
               if (phoneNumber.length < 1) errorsData.push('Phone Number-field is required')
               if (streetAddress.length < 1) errorsData.push('Street Address-field is required')
               if (city.length < 1) errorsData.push('City-field is required')
@@ -61,7 +62,7 @@ const BusinessFormComponent = () => {
     return (
            <div className="bus-form-container">
         <form onSubmit={submitBusiness} className="business-listing-form">
-        <div className='login-errors'>
+        <div className='bus-form-errors'>
         {showErrors && errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
@@ -120,13 +121,16 @@ const BusinessFormComponent = () => {
                 <option value='transportation'>Transportation</option>
                 <option value='entertainment'>Entertainment</option>
             </select>
-            <label>Upload Pictures(optional)</label>
+            <label className="upload-picture">Upload Pictures (optional)
+
             <input placeholder="Photos"
+                     className="choose-file-input"
                     type="file"
                     multiple
-                   onChange={e => setPhotos(e.target.files)}
-            >
+                    onChange={e => setPhotos(e.target.files)}
+                    >
             </input>
+                   </label>
             <button className="bus-form-button" type="submit">Create</button>
         </form>
            </div>
