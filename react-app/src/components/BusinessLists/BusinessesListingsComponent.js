@@ -78,7 +78,9 @@ const BusinessListingComponent = () => {
                                 </div>
                                 <div className="bus-info-card-buttons">
                                     <button className="view-solo-bus-button" id={bus.id} onClick={businessinfoView}>View Page </button>
-                                    <button className="hm-review-add-button" id = {bus.id} onClick={(e) => setShowReviewForm(bus.id)}>Add Review</button>
+                                    { user?.user?.id !== bus?.creator_id &&
+                                        <button className="hm-review-add-button" id = {bus.id} onClick={(e) => setShowReviewForm(bus.id)}>Add Review</button>
+                                        }
                                     <div onClick={() => setShowUserButtons(bus.id)} className="bus-info-options"><i className="fas fa-ellipsis-v"></i></div>
                                     {showUserButtons === bus.id && user?.user !== null && user?.user.id === bus.creator_id &&
                                         <div className="user-bus-edit-buttons">
@@ -120,8 +122,8 @@ const BusinessListingComponent = () => {
                             <div className="delete-modal-bg" onClick={() => setShowDeleteModal(0)}>
                                 <div className="delete-modal-container" onClick={(e) => e.stopPropagation()}>
                                     <p>Are you sure you want to delete {bus.name}?</p>
-                                    <button onClick={deleteBusinessHandle}>Delete</button>
-                                    <button onClick={() => setShowDeleteModal(0)}>Cancel</button>
+                                    <button className="delete-bus-modal-button" onClick={deleteBusinessHandle}>Delete</button>
+                                    <button className="delete-cancel-bus-modal-button" onClick={() => setShowDeleteModal(0)}>Cancel</button>
                                 </div>
                             </div>
                         }

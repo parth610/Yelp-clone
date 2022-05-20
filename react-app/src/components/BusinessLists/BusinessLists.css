@@ -83,8 +83,9 @@
     border: none;
     background-color: #f36746;
     border-radius: 5px;
-    margin: 0 5px;
+    margin: 0 5px 0 0;
     color: white;
+    padding: 0 20px;
 }
 
 .hm-review-add-button {
@@ -93,6 +94,7 @@
     border-radius: 5px;
     margin: 0 5px;
     color: white;
+    padding: 0 20px;
 }
 
 .add-review-home {
@@ -188,4 +190,26 @@
 .bus-info-card-buttons {
     margin-top: 20px;
     display: flex;
+}
+
+.delete-bus-modal-button {
+    background-color: #f36746;
+    width: 30%;
+    padding: 10px 15px;
+    margin: 10px 10px 20px 10px;
+    border-radius: 5px;
+    border: solid 1px rgb(200, 200, 200);
+    color: white;
+    font-size: 16px;
+}
+
+.delete-cancel-bus-modal-button {
+    background-color: #f3664600;
+    width: 30%;
+    padding: 10px 15px;
+    margin: 10px 10px 20px 10px;
+    border-radius: 5px;
+    border: solid 1px #f36746;
+    color: #f36746;
+    font-size: 16px;
 }
