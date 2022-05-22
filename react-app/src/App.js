@@ -43,9 +43,9 @@ function App() {
         {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute> */}
-        <Route path='/business/:busId'>
+        <ProtectedRoute path='/business/:busId'>
           <BusinessSoloComponenent />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
@@ -55,9 +55,9 @@ function App() {
         <Route path='/' exact={true} >
           <SplashComponent />
         </Route>
-        <Route path='/businesses-lists'>
+        <ProtectedRoute path='/businesses-lists'>
           <BusinessListingComponent />
-        </Route>
+        </ProtectedRoute>
       </Switch>
       <FooterComponent />
     </BrowserRouter>

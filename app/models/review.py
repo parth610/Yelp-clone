@@ -20,5 +20,6 @@ class Review(db.Model):
             'stars': self.stars,
             'user_id': self.user_id,
             'business_id': self.business_id,
+            'username': self.user.username,
             'created_at': self.created_at
         }
