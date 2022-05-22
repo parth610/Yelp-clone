@@ -17,7 +17,15 @@ const BusinessSoloComponenent = () => {
 
     const currBusiness = allBusinesses.find(bus => bus.id === +busId)
     const relatedReviews = allReviews.filter(rev => rev.business_id === +busId)
-    console.log(user)
+    const averageSumRating = (objArr) => {
+        let sum = 0
+        for (let obj in objArr) {
+            sum += objArr[obj].stars
+            console.log(objArr[obj])
+        }
+        return sum / objArr.length
+    }
+    const averageRating = averageSumRating(relatedReviews);
 
     const [showReviewForm, setShowReviewForm] = useState(0)
     const [showReviewEditForm, setShowReviewEditForm] = useState(0)
@@ -34,33 +42,59 @@ const BusinessSoloComponenent = () => {
         await dispatch(removeReview(+e.target.id))
     }
 
+    console.log(currBusiness?.photos)
+
     return (
-        <div>
-            <div className="bus-solo-info">
-                <div>
-                {currBusiness?.name}
-                </div>
-                <div>
+        <div className="bus-solo-view-container">
+            <div className="bus-photos-container">
+                {
+                    currBusiness?.photos && Object.values(currBusiness?.photos) ? Object.values(currBusiness.photos).slice(0, 2).map(photo => (
+                        <div className="solo-ind-img-box" key={photo}>
+                            <img className="solo-ind-img" src={photo}></img>
+                        </div>
+                    )) : <div className="solo-ind-img-box-no-photos">No photos</div>
+                }
+                <div className="gradient-on-photos"></div>
+                <div className="bus-solo-name-and-ratings">
+                    <div className="bus-solos-name">{currBusiness?.name}</div>
+                    <div className="bus-solo-type">
                     {currBusiness?.business_type}
+                    </div>
+                    <div>
+                        {averageRating.toFixed(1)}
+                        {
+                            [...Array(5)].map((star, i) => {
+                                const starId = i + 1;
+                                return(
+                                    <label key={starId}>
+                                        <i className="fas fa-star" id={starId <= averageRating ? 'yellow-star-rate': 'grey-star-rate'}></i>
+                                  </label>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-                <div className="bus-info-about">
-                    {currBusiness?.about}
+            </div>
+            <div className="bus-solo-info">
+
+                <div>
+                    Phone: {currBusiness?.phone_number}
                 </div>
                 <div>
-                    {currBusiness?.phone_number}
-                </div>
-                <div>
-                    {currBusiness?.street_address}
+                    Street Address: {currBusiness?.street_address}
                 </div>
                 <div>
                     {currBusiness?.city} {currBusiness?.state}, {currBusiness?.zip_code}
+                </div>
+                <div className="bus-solo-info-about">
+                    <div className="bus-solo-about-text">Abouth this Business</div>{currBusiness?.about}
                 </div>
             </div>
             <div className="bus-reviews">
                 {
                 user?.user?.id !== currBusiness?.creator_id &&
                 <div>
-                    <button onClick={() => setShowReviewForm(currBusiness?.id)}>Add Review</button>
+                    <button className="bus-solo-add-review-button" onClick={() => setShowReviewForm(currBusiness?.id)}>Add Review</button>
                 </div>}
                 {
                             showReviewForm === currBusiness?.id &&
@@ -75,18 +109,31 @@ const BusinessSoloComponenent = () => {
                     </div>
                 {
                     relatedReviews?.map(review => (
-                        <div key={review.id}>
+                        <div className="reviews-solo-container" key={review.id}>
+                            <div>
+                                {review.username}
+                            </div>
                             <div>
                                 {review.stars}
+                                {
+                            [...Array(5)].map((star, i) => {
+                                const starId = i + 1;
+                                return(
+                                    <label key={starId}>
+                                        <i className="fas fa-star" id={starId <= review.stars ? 'yellow-star-rate': 'grey-star-rate'}></i>
+                                  </label>
+                                )
+                            })
+                        }
                             </div>
                             <div>
                                 {review?.content}
                             </div>
                             {
                                 user?.user?.id === review.user_id &&
-                                <div>
-                                    <button onClick={() => setShowReviewEditForm(review.id)}>Edit</button>
-                                    <button id={review.id} onClick={deleteReviewHandle}>Delete</button>
+                                <div className="edit-delete-review-buttons-container">
+                                    <button className="review-edit-button" onClick={() => setShowReviewEditForm(review.id)}>Edit</button>
+                                    <button className="review-delete-button" id={review.id} onClick={deleteReviewHandle}>Delete</button>
                                 </div>
                             }
                             {

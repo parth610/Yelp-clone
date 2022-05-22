@@ -1,8 +1,102 @@
+.bus-solo-view-container {
+    width: 100%;
+    margin: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
+.bus-photos-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background-color:  #373b52;
+}
+
+.solo-ind-img-box {
+    width: 500px;
+    height: 300px;
+}
+
+.solo-ind-img-box-no-photos {
+    width: 500px;
+    height: 300px;
+    color: white;
+}
+
+.solo-ind-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gradient-on-photos {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.bus-solo-name-and-ratings {
+    width: 960px;
+    position: absolute;
+    display: flex;
+    height: 260px;
+    color: white;
+    font-weight: 700;
+    font-size: 36px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.bus-solos-name {
+
+}
+
+#grey-star-rate {
+    color: rgba(128, 128, 128, 0.11);
+    -webkit-text-stroke: 1px #f36746;
+    font-size: 40px;
+}
+
+#yellow-star-rate {
+    font-size: 40px;
+    color: #f36746;
+}
+
+.bus-solo-type {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.bus-solo-info {
+    width: 960px;
+    height: fit-content;
+    padding: 20px;
+}
+
+.bus-solo-info-about {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+.bus-solo-about-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f36746;
+}
 
 .review-form-bg-solo {
     position: fixed;
     top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.473);
@@ -15,6 +109,7 @@
 .review-edit-form-solo {
     position: fixed;
     top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.473);
@@ -22,4 +117,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.reviews-solo-container {
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.edit-delete-review-buttons-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.review-edit-button, .review-delete-button {
+    background-color: #f36746;
+    color:white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.bus-solo-add-review-button {
+    background-color: #f36746;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
 }
