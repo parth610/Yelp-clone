@@ -102,7 +102,7 @@ const BusinessListingComponent = () => {
                                             <img className="bus-ind-photo" src={bus.photos["0"]}></img>
                                         </div>
                                     :
-                                    <div className="no-photos-container">No photos</div>
+                                    <div className="no-photos-container"></div>
                                 }
                             </div>
                         </div>
