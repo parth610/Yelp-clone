@@ -39,9 +39,9 @@ const BusinessFormComponent = () => {
     const submitBusiness = async (e) => {
         e.preventDefault();
         const fD = new FormData()
-        for (let i = 0; i < photos.length; i++) {
-            fD.append('images', photos[i])
-        }
+       //  for (let i = 0; i < photos.length; i++) {
+       //      fD.append('images', photos[i])
+       //  }
         fD.append('name', title)
         fD.append('about', about)
         fD.append('phone_number', phoneNumber)
@@ -121,7 +121,7 @@ const BusinessFormComponent = () => {
                 <option value='transportation'>Transportation</option>
                 <option value='entertainment'>Entertainment</option>
             </select>
-            <label className="upload-picture">Upload Pictures (optional)
+            {/* <label className="upload-picture">Upload Pictures (optional)
 
             <input placeholder="Photos"
                      className="choose-file-input"
@@ -130,7 +130,7 @@ const BusinessFormComponent = () => {
                     onChange={e => setPhotos(e.target.files)}
                     >
             </input>
-                   </label>
+                   </label> */}
             <button className="bus-form-button" type="submit">Create</button>
         </form>
            </div>
