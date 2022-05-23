@@ -42,7 +42,7 @@ const BusinessSoloComponenent = () => {
         await dispatch(removeReview(+e.target.id))
     }
 
-
+console.log(isNaN(averageRating), averageRating)
     return (
         <div className="bus-solo-view-container">
             <div className="bus-photos-container">
@@ -61,7 +61,7 @@ const BusinessSoloComponenent = () => {
                     {currBusiness?.business_type}
                     </div>
                     <div>
-                        {averageRating.toFixed(1)}
+                        {isNaN(averageRating) ? 'Not Rated' : averageRating.toFixed(1)}
                         {
                             [...Array(5)].map((star, i) => {
                                 const starId = i + 1;
