@@ -16,11 +16,10 @@ const BusinessEditFormComponent = ({bus, setShowEditForm}) => {
     const [editstate, setEditState] = useState(bus?.state)
     const [editzipCode, setEditZipCode] = useState(bus?.zip_code)
     // const [editphotos, setEditPhotos] = useState('')
-    const [editbusinessType, setEditBusinessType] = useState(bus?.businessType)
+    const [editbusinessType, setEditBusinessType] = useState(bus?.business_type)
     const [editErrors, setEditErrors] = useState([])
     const [showEditErrors, setShowEditErrors] = useState(false)
 
-    console.log(edittitle, editabout, editphoneNumber, editstreetAddress, editcity, editstate, editzipCode, editbusinessType)
 
     useEffect(() => {
         const errorsData = []
@@ -36,6 +35,7 @@ const BusinessEditFormComponent = ({bus, setShowEditForm}) => {
 
         setEditErrors(errorsData)
  }, [edittitle, editabout, editphoneNumber, editstreetAddress, editcity, editstate, editzipCode, editbusinessType])
+
 
     const editBusinessInfo = async (e) => {
         e.preventDefault()
