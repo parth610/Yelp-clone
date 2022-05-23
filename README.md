@@ -1,6 +1,8 @@
 # Sharate-it
 
+
 This is the repository for Sharate it app which is solely based on the idea of Yelp.
+
 
 # Technologies Used
 ## Technologies Used
