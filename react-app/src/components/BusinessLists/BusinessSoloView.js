@@ -47,11 +47,12 @@ const BusinessSoloComponenent = () => {
         <div className="bus-solo-view-container">
             <div className="bus-photos-container">
                 {
-                    currBusiness?.photos && Object.values(currBusiness?.photos) ? Object.values(currBusiness.photos).slice(0, 2).map(photo => (
-                        <div className="solo-ind-img-box" key={photo}>
-                            <img className="solo-ind-img" src={photo}></img>
-                        </div>
-                    )) : <div className="solo-ind-img-box-no-photos"></div>
+                    // currBusiness?.photos && Object.values(currBusiness?.photos) ? Object.values(currBusiness.photos).slice(0, 2).map(photo => (
+                    //     <div className="solo-ind-img-box" key={photo}>
+                    //         <img className="solo-ind-img" src={photo}></img>
+                    //     </div>
+                    // )) :
+                     <div className="solo-ind-img-box-no-photos"></div>
                 }
                 <div className="gradient-on-photos"></div>
                 <div className="bus-solo-name-and-ratings">
