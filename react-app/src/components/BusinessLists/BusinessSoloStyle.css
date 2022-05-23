@@ -136,7 +136,7 @@
     background-color: #f36746;
     color:white;
     border: none;
-    padding: 15px;
+    padding: 10px 15px;
     border-radius: 5px;
     margin: 5px;
 }
@@ -147,4 +147,17 @@
     padding: 15px;
     border-radius: 5px;
     border: none;
+}
+
+.bus-solo-basic-info {
+    width: fit-content;
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+.review-content-text {
+    margin: 10px 0;
 }

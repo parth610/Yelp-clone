@@ -90,7 +90,7 @@ export default function reviewsReducer(state = initialState, action) {
         }
         case LOAD_REVIEWS: {
             const newState = {}
-            console.log(action.reviews)
+           
             action.reviews?.map(review => {
                 return newState[review.id] = review
             })

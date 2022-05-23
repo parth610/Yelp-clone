@@ -21,7 +21,6 @@ const BusinessSoloComponenent = () => {
         let sum = 0
         for (let obj in objArr) {
             sum += objArr[obj].stars
-            console.log(objArr[obj])
         }
         return sum / objArr.length
     }
@@ -29,6 +28,7 @@ const BusinessSoloComponenent = () => {
 
     const [showReviewForm, setShowReviewForm] = useState(0)
     const [showReviewEditForm, setShowReviewEditForm] = useState(0)
+    const [showReviewDeleteModal, setShowReviewDeleteModal] = useState(0)
 
     useEffect(() => {
         dispatch(getBusinesses())
@@ -42,7 +42,6 @@ const BusinessSoloComponenent = () => {
         await dispatch(removeReview(+e.target.id))
     }
 
-    console.log(currBusiness?.photos)
 
     return (
         <div className="bus-solo-view-container">
@@ -76,7 +75,7 @@ const BusinessSoloComponenent = () => {
                 </div>
             </div>
             <div className="bus-solo-info">
-
+                <div className="bus-solo-basic-info">
                 <div>
                     Phone: {currBusiness?.phone_number}
                 </div>
@@ -85,6 +84,7 @@ const BusinessSoloComponenent = () => {
                 </div>
                 <div>
                     {currBusiness?.city} {currBusiness?.state}, {currBusiness?.zip_code}
+                </div>
                 </div>
                 <div className="bus-solo-info-about">
                     <div className="bus-solo-about-text">Abouth this Business</div>{currBusiness?.about}
@@ -126,14 +126,14 @@ const BusinessSoloComponenent = () => {
                             })
                         }
                             </div>
-                            <div>
+                            <div className="review-content-text">
                                 {review?.content}
                             </div>
                             {
                                 user?.user?.id === review.user_id &&
                                 <div className="edit-delete-review-buttons-container">
                                     <button className="review-edit-button" onClick={() => setShowReviewEditForm(review.id)}>Edit</button>
-                                    <button className="review-delete-button" id={review.id} onClick={deleteReviewHandle}>Delete</button>
+                                    <button className="review-delete-button" id={review.id} onClick={() => setShowReviewDeleteModal(review.id)}>Delete</button>
                                 </div>
                             }
                             {
@@ -142,6 +142,16 @@ const BusinessSoloComponenent = () => {
                                     <ReviewEditFormComponent review={review} setShowReviewEditForm={setShowReviewEditForm} />
                                 </div>
                             }
+                            {
+                                        showReviewDeleteModal === review.id &&
+                                        <div className="delete-modal-bg" onClick={() => setShowReviewDeleteModal(0)}>
+                                            <div className="delete-modal-container" onClick={(e) => e.stopPropagation()}>
+                                                <p>Are you sure you want to delete this review?</p>
+                                                <button id={review.id} className="delete-bus-modal-button" onClick={deleteReviewHandle}>Delete</button>
+                                                <button className="delete-cancel-bus-modal-button" onClick={() => setShowReviewDeleteModal(0)}>Cancel</button>
+                                            </div>
+                                        </div>
+                                    }
                         </div>
                     ))
                 }
