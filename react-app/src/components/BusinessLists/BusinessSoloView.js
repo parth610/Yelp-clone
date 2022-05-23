@@ -51,7 +51,7 @@ const BusinessSoloComponenent = () => {
                         <div className="solo-ind-img-box" key={photo}>
                             <img className="solo-ind-img" src={photo}></img>
                         </div>
-                    )) : <div className="solo-ind-img-box-no-photos">No photos</div>
+                    )) : <div className="solo-ind-img-box-no-photos"></div>
                 }
                 <div className="gradient-on-photos"></div>
                 <div className="bus-solo-name-and-ratings">
