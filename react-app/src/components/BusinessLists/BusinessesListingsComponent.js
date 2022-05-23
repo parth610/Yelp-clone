@@ -81,7 +81,7 @@ const BusinessListingComponent = () => {
                                     { user?.user?.id !== bus?.creator_id &&
                                         <button className="hm-review-add-button" id = {bus.id} onClick={(e) => setShowReviewForm(bus.id)}>Add Review</button>
                                         }
-                                    <div onClick={() => setShowUserButtons(bus.id)} className="bus-info-options"><i className="fas fa-ellipsis-v"></i></div>
+                                    {user?.user !== null && user?.user.id === bus.creator_id &&  <div onClick={() => setShowUserButtons(bus.id)} className="bus-info-options"><i className="fas fa-ellipsis-v"></i></div>}
                                     {showUserButtons === bus.id && user?.user !== null && user?.user.id === bus.creator_id &&
                                         <div className="user-bus-edit-buttons">
                                             <div onClick={(() => setShowUserButtons(0))} className="user-bus-edit-buttons-bg">
