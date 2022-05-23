@@ -3,4 +3,23 @@
     background-color: #373b52;
     /* position: absolute;
     bottom: 0px; */
+    padding: 30px 20px;
+    display: flex;
+    justify-content: center;
+    font-family: pt-sans,sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.footer-container > div {
+    margin: 0 5px;
+}
+
+.footer-container > div > a {
+    color: #f36746;
+    margin: 0 5px;
+}
+
+.footer-container > div > a:hover {
+    cursor: pointer;
 }
