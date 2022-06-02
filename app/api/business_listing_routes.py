@@ -22,7 +22,7 @@ def create_business_listing():
     photos_dict = {}
     for i in range(len(files)):
         if not allowed_file(files[i].filename):
-            return {"errors": "file type not supported"}
+            return {'errors': validation_errors_to_error_messages({"photos": ["file type not supported"]})}
         files[i].filename = get_unique_filename(files[i].filename)
         print(files[i].filename, '...............//////////////')
         upload = upload_file_to_s3(files[i])
@@ -50,6 +50,7 @@ def create_business_listing():
         db.session.add(business_listing)
         db.session.commit()
         return business_listing.to_dict()
+    print(form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

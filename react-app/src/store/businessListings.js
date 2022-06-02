@@ -60,7 +60,6 @@ export const removeBusiness = (busId) => async (dispatch) => {
 
 export const createBusiness = (businessData) => async (dispatch) => {
     const data1 = await businessData.getAll('name')
-    console.log(data1)
     const response = await fetch('/api/business/', {
         method: 'POST',
         body: businessData,
@@ -71,8 +70,9 @@ export const createBusiness = (businessData) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json();
+        // console.log(data)
         if (data.errors) {
-            return;
+            return {errors: data.errors};
         }
         dispatch(addBusiness(data))
         return data
