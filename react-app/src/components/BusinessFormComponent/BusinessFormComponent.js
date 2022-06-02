@@ -34,14 +34,14 @@ const BusinessFormComponent = () => {
               if (businessType.length < 1) errorsData.push('Select Business Type')
 
               setErrors(errorsData)
-       }, [title, about, phoneNumber, streetAddress, city, state, zipCode, businessType])
+       }, [title, about, phoneNumber, streetAddress, city, state, zipCode, businessType, photos])
 
     const submitBusiness = async (e) => {
         e.preventDefault();
         const fD = new FormData()
-       //  for (let i = 0; i < photos.length; i++) {
-       //      fD.append('images', photos[i])
-       //  }
+        for (let i = 0; i < photos.length; i++) {
+            fD.append('images', photos[i])
+        }
         fD.append('name', title)
         fD.append('about', about)
         fD.append('phone_number', phoneNumber)
@@ -51,8 +51,13 @@ const BusinessFormComponent = () => {
         fD.append('zip_code', zipCode)
         fD.append('businessType', businessType)
         if (errors.length < 1) {
-              await dispatch(createBusiness(fD))
-              history.push('/businesses-lists')
+              const retData = await dispatch(createBusiness(fD))
+              if (retData.errors) {
+                     setErrors(retData.errors)
+                     setShowErrors(true)
+              } else {
+                     history.push('/businesses-lists')
+              }
        } else {
               setShowErrors(true)
        }
@@ -63,7 +68,7 @@ const BusinessFormComponent = () => {
            <div className="bus-form-container">
         <form onSubmit={submitBusiness} className="business-listing-form">
         <div className='bus-form-errors'>
-        {showErrors && errors.map((error, ind) => (
+        {showErrors && errors && errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
@@ -121,7 +126,7 @@ const BusinessFormComponent = () => {
                 <option value='transportation'>Transportation</option>
                 <option value='entertainment'>Entertainment</option>
             </select>
-            {/* <label className="upload-picture">Upload Pictures (optional)
+            <label className="upload-picture">Upload Pictures (optional)
 
             <input placeholder="Photos"
                      className="choose-file-input"
@@ -130,7 +135,7 @@ const BusinessFormComponent = () => {
                     onChange={e => setPhotos(e.target.files)}
                     >
             </input>
-                   </label> */}
+                   </label>
             <button className="bus-form-button" type="submit">Create</button>
         </form>
            </div>

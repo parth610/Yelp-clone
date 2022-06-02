@@ -42,16 +42,16 @@ const BusinessSoloComponenent = () => {
         await dispatch(removeReview(+e.target.id))
     }
 
-console.log(isNaN(averageRating), averageRating)
+
     return (
         <div className="bus-solo-view-container">
             <div className="bus-photos-container">
                 {
-                    // currBusiness?.photos && Object.values(currBusiness?.photos) ? Object.values(currBusiness.photos).slice(0, 2).map(photo => (
-                    //     <div className="solo-ind-img-box" key={photo}>
-                    //         <img className="solo-ind-img" src={photo}></img>
-                    //     </div>
-                    // )) :
+                    currBusiness?.photos && Object.values(currBusiness?.photos) ? Object.values(currBusiness.photos).slice(0, 2).map(photo => (
+                        <div className="solo-ind-img-box" key={photo}>
+                            <img className="solo-ind-img" src={photo}></img>
+                        </div>
+                    )) :
                      <div className="solo-ind-img-box-no-photos"></div>
                 }
                 <div className="gradient-on-photos"></div>
